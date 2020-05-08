@@ -1,44 +1,30 @@
-# com.joineryhq.estatweaks
+# ESTA Tweaks
+## com.joineryhq.estatweaks
 
-![Screenshot](/images/screenshot.png)
+Custom CiviCRM modifications for ESTA:
 
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+* On membership contribution pages, allows user to select existing current lifetime memberships
+  (whereas native CiviCRM behavior is to hide options for lifetime membership types if the user
+  has a current membership of that type.)
+* Shows a critical alert in CiviCRM System Status if CiviCRM version doesn't match that of PHP
+  file overrides used by this extension.
 
-The extension is licensed under [GPL-3.0](LICENSE.txt).
+## Caveats
+
+This extension makes use of PHP file overrides. Developer support will be needed for any 
+upgrade of CiviCRM, to prevent misbehavior from mismatching file versions.
 
 ## Requirements
 
 * PHP v7.0+
-* CiviCRM (*FIXME: Version number*)
-
-## Installation (Web UI)
-
-This extension has not yet been published for installation via the web UI.
-
-## Installation (CLI, Zip)
-
-Sysadmins and developers may download the `.zip` file for this extension and
-install it with the command-line tool [cv](https://github.com/civicrm/cv).
-
-```bash
-cd <extension-dir>
-cv dl com.joineryhq.estatweaks@https://github.com/FIXME/com.joineryhq.estatweaks/archive/master.zip
-```
-
-## Installation (CLI, Git)
-
-Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) repo for this extension and
-install it with the command-line tool [cv](https://github.com/civicrm/cv).
-
-```bash
-git clone https://github.com/FIXME/com.joineryhq.estatweaks.git
-cv en estatweaks
-```
+* CiviCRM 5.24.5
 
 ## Usage
 
-(* FIXME: Where would a new user navigate to get started? What changes would they see? *)
+No configuration is needed.
 
 ## Known Issues
 
-(* FIXME *)
+Use of PHP file overrides is considered risky with regard to future CiviCRM upgrades,
+for reasons stated above. Please consult a developer if you have questions about these
+risks.
