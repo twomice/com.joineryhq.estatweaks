@@ -981,7 +981,7 @@ WHERE  id = %1";
         }
         $currentMembership = $_contact_memberships[$userid][$value['membership_type_id']];
         if (!empty($currentMembership) && empty($currentMembership['end_date'])) {
-// FIXME: HERE.
+          // ESTA Tweaks extension change: comment out these lines:
 //          unset($options[$key]);
 //          $checkLifetime = TRUE;
         }

@@ -1256,8 +1256,8 @@ class CRM_Contribute_Form_ContributionBase extends CRM_Core_Form {
 
               if ($membership->find(TRUE)) {
                 if (!$membership->end_date) {
+                  // ESTA Tweaks extension change: comment out these lines:
 //                  unset($radio[$memType['id']]);
-//// FIXME: HERE.
 //                  $this->assign('islifetime', TRUE);
                   continue;
                 }
