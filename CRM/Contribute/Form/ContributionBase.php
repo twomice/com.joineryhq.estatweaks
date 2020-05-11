@@ -1259,7 +1259,7 @@ class CRM_Contribute_Form_ContributionBase extends CRM_Core_Form {
                   // ESTA Tweaks extension change: comment out these lines:
 //                  unset($radio[$memType['id']]);
 //                  $this->assign('islifetime', TRUE);
-                  continue;
+//                  continue;
                 }
                 $this->assign('renewal_mode', TRUE);
                 $this->_currentMemberships[$membership->membership_type_id] = $membership->membership_type_id;
