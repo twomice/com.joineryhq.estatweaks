@@ -17,7 +17,7 @@ upgrade of CiviCRM, to prevent misbehavior from mismatching file versions.
 ## Requirements
 
 * PHP v7.0+
-* CiviCRM 5.24.5
+* CiviCRM 5.26.2
 
 ## Usage
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copied for estatweaks extension from like-named civicrm file in civicrm 5.24.5.
+ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.26.2.
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC. All rights reserved.                        |
  |                                                                    |
@@ -62,7 +62,7 @@ class CRM_Price_BAO_PriceSet extends CRM_Price_DAO_PriceSet {
       $params['extends'] = CRM_Utils_Array::implodePadded($params['extends']);
     }
     else {
-      $priceSetID = CRM_Utils_Array::value('id', $params);
+      $priceSetID = $params['id'] ?? NULL;
     }
     $priceSetBAO = new CRM_Price_BAO_PriceSet();
     $priceSetBAO->copyValues($params);
@@ -341,7 +341,7 @@ WHERE     cpf.price_set_id = %1";
       }
     }
     else {
-      $fid = CRM_Utils_Array::value('fid', $params);
+      $fid = $params['fid'] ?? NULL;
     }
 
     if (isset($fid)) {
@@ -604,8 +604,8 @@ WHERE  id = %1";
 
       $form->_priceSetId = $priceSetId;
       $priceSet = self::getSetDetail($priceSetId, $required, $validOnly);
-      $form->_priceSet = CRM_Utils_Array::value($priceSetId, $priceSet);
-      $form->_values['fee'] = CRM_Utils_Array::value('fields', $form->_priceSet);
+      $form->_priceSet = $priceSet[$priceSetId] ?? NULL;
+      $form->_values['fee'] = $form->_priceSet['fields'] ?? NULL;
 
       //get the price set fields participant count.
       if ($entityTable == 'civicrm_event') {
@@ -830,7 +830,7 @@ WHERE  id = %1";
     }
 
     $priceSet = self::getSetDetail($priceSetId, TRUE, $validFieldsOnly);
-    $form->_priceSet = CRM_Utils_Array::value($priceSetId, $priceSet);
+    $form->_priceSet = $priceSet[$priceSetId] ?? NULL;
     $validPriceFieldIds = array_keys($form->_priceSet['fields']);
     $form->_quickConfig = $quickConfig = 0;
     if (CRM_Core_DAO::getFieldValue('CRM_Price_DAO_PriceSet', $priceSetId, 'is_quick_config')) {
@@ -901,11 +901,12 @@ WHERE  id = %1";
         (CRM_Utils_Array::value('visibility', $field) == 'admin' && $adminFieldVisible == TRUE) ||
         !$validFieldsOnly
       ) {
-        $options = CRM_Utils_Array::value('options', $field);
+        $options = $field['options'] ?? NULL;
         if ($className == 'CRM_Contribute_Form_Contribution_Main' && $component = 'membership') {
           $userid = $form->getVar('_membershipContactID');
           $checklifetime = self::checkCurrentMembership($options, $userid);
           if ($checklifetime) {
+            // ESTA Tweaks extension change: comment out these lines:
 //            $form->assign('ispricelifetime', TRUE);
           }
         }
@@ -1695,7 +1696,7 @@ WHERE     ct.id = cp.financial_type_id AND
    *
    * @return array
    */
-  protected static function getLine(&$params, &$lineItem, $priceSetID, $field, $id, $totalPrice): array {
+  public static function getLine(&$params, &$lineItem, $priceSetID, $field, $id, $totalPrice): array {
     $totalTax = 0;
     switch ($field['html_type']) {
       case 'Text':
