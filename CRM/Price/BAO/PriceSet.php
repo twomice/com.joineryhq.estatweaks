@@ -907,7 +907,7 @@ WHERE  id = %1";
           $checklifetime = self::checkCurrentMembership($options, $userid);
           if ($checklifetime) {
             // ESTA Tweaks extension change: comment out these lines:
-//            $form->assign('ispricelifetime', TRUE);
+            // $form->assign('ispricelifetime', TRUE);
           }
         }
 
@@ -983,8 +983,8 @@ WHERE  id = %1";
         $currentMembership = $_contact_memberships[$userid][$value['membership_type_id']];
         if (!empty($currentMembership) && empty($currentMembership['end_date'])) {
           // ESTA Tweaks extension change: comment out these lines:
-//          unset($options[$key]);
-//          $checkLifetime = TRUE;
+          // unset($options[$key]);
+          // $checkLifetime = TRUE;
         }
       }
     }
