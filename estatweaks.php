@@ -1,7 +1,7 @@
 <?php
 
 require_once 'estatweaks.civix.php';
-// use CRM_Estatweaks_ExtensionUtil as E;
+use CRM_Estatweaks_ExtensionUtil as E;
 
 /**
  * Implements hook_civicrm_check().
