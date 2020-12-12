@@ -14,11 +14,11 @@ function estatweaks_civicrm_check(&$messages) {
   if ($currentCoreVersion != $validCoreVersion) {
     $messages[] = new CRM_Utils_Check_Message(
       'estatweaks_coreversion',
-      ts('The ESTA Tweaks extension includes overridden PHP files copied from CiviCRM %1, but this site is running CiviCRM %2; you should have a developer update those overridden files to match the current CiviCRM version.', [
+      E::ts('The ESTA Tweaks extension includes overridden PHP files copied from CiviCRM %1, but this site is running CiviCRM %2; you should have a developer update those overridden files to match the current CiviCRM version.', [
         $validCoreVersion,
         $currentCoreVersion,
       ]),
-      ts('CiviCRM Version Incompatible'),
+      E::ts('CiviCRM Version Incompatible'),
       \Psr\Log\LogLevel::CRITICAL,
       'fa-flag'
     );
