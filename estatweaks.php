@@ -9,7 +9,7 @@ use CRM_Estatweaks_ExtensionUtil as E;
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_check/
  */
 function estatweaks_civicrm_check(&$messages) {
-  $validCoreVersion = '5.28.3';
+  $validCoreVersion = '5.35.1';
   $currentCoreVersion = CRM_Utils_System::version();
   if ($currentCoreVersion != $validCoreVersion) {
     $messages[] = new CRM_Utils_Check_Message(
