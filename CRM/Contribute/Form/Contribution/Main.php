@@ -1,6 +1,6 @@
 <?php
 /*
- * Copied for estatweaks extension from like-named civicrm file in civicrm 5.35.1.
+ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.36.0.
  * Search this file for ESTATWEAKS_MOD in comments to identify changes.
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC. All rights reserved.                        |
@@ -125,7 +125,7 @@ class CRM_Contribute_Form_Contribution_Main extends CRM_Contribute_Form_Contribu
       $this->_defaults = array_merge($this->_defaults, $billingDefaults);
     }
     if (!empty($this->_ccid) && !empty($this->_pendingAmount)) {
-      $this->_defaults['total_amount'] = CRM_Utils_Money::format($this->_pendingAmount, NULL, '%a');
+      $this->_defaults['total_amount'] = CRM_Utils_Money::formatLocaleNumericRoundedForDefaultCurrency($this->_pendingAmount);
     }
 
     /*
