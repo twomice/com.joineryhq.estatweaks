@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.41.2.
+ * Search this file for ESTATWEAKS_MOD in comments to identify changes.
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC. All rights reserved.                        |
  |                                                                    |
@@ -908,8 +910,9 @@ WHERE  id = %1";
         }
         $currentMembership = $_contact_memberships[$userid][$value['membership_type_id']];
         if (!empty($currentMembership) && empty($currentMembership['end_date'])) {
-          unset($options[$key]);
-          $checkLifetime = TRUE;
+          // ESTATWEAKS_MOD: ESTA Tweaks extension change: comment out these lines:
+          // unset($options[$key]);
+          // $checkLifetime = TRUE;
         }
       }
     }
@@ -1722,7 +1725,8 @@ WHERE     ct.id = cp.financial_type_id AND
           $userid = $form->getVar('_membershipContactID');
           $checklifetime = self::checkCurrentMembership($options, $userid);
           if ($checklifetime) {
-            $form->assign('ispricelifetime', TRUE);
+            // ESTATWEAKS_MOD: ESTA Tweaks extension change: comment out these lines:
+            // $form->assign('ispricelifetime', TRUE);
           }
         }
 

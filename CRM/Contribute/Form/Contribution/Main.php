@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.41.2.
+ * Search this file for ESTATWEAKS_MOD in comments to identify changes.
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC. All rights reserved.                        |
  |                                                                    |
@@ -657,10 +659,11 @@ class CRM_Contribute_Form_Contribution_Main extends CRM_Contribute_Form_Contribu
 
               if ($membership->find(TRUE)) {
                 if (!$membership->end_date) {
-                  unset($radio[$memType['id']]);
-                  unset($radioOptAttrs[$memType['id']]);
-                  $this->assign('islifetime', TRUE);
-                  continue;
+                  // ESTATWEAKS_MOD: ESTA Tweaks extension change: comment out these lines:
+                  // unset($radio[$memType['id']]);
+                  // unset($radioOptAttrs[$memType['id']]);
+                  // $this->assign('islifetime', TRUE);
+                  // continue;
                 }
                 $this->assign('renewal_mode', TRUE);
                 $this->_currentMemberships[$membership->membership_type_id] = $membership->membership_type_id;
