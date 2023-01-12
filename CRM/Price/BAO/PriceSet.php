@@ -1,6 +1,6 @@
 <?php
 /*
- * Copied for estatweaks extension from like-named civicrm file in civicrm 5.41.2.
+ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.57.1.
  * Search this file for ESTATWEAKS_MOD in comments to identify changes.
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC. All rights reserved.                        |
