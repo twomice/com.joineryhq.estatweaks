@@ -1,0 +1,58 @@
+--- a/CRM/Contribute/Form/Contribution/Main.php
++++ b/CRM/Contribute/Form/Contribution/Main.php
+@@ -1,5 +1,7 @@
+ <?php
+ /*
++ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.58.1.
++ * Search this file for ESTATWEAKS_MOD in comments to identify changes.
+  +--------------------------------------------------------------------+
+  | Copyright CiviCRM LLC. All rights reserved.                        |
+  |                                                                    |
+@@ -617,10 +619,11 @@ class CRM_Contribute_Form_Contribution_Main extends CRM_Contribute_Form_Contribu
+ 
+               if ($membership->find(TRUE)) {
+                 if (!$membership->end_date) {
+-                  unset($radio[$memType['id']]);
+-                  unset($radioOptAttrs[$memType['id']]);
+-                  $this->assign('islifetime', TRUE);
+-                  continue;
++                  // ESTATWEAKS_MOD: ESTA Tweaks extension change: comment out these lines:
++                  // unset($radio[$memType['id']]);
++                  // unset($radioOptAttrs[$memType['id']]);
++                  // $this->assign('islifetime', TRUE);
++                  // continue;
+                 }
+                 $this->assign('renewal_mode', TRUE);
+                 $this->_currentMemberships[$membership->membership_type_id] = $membership->membership_type_id;
+--- a/CRM/Price/BAO/PriceSet.php
++++ b/CRM/Price/BAO/PriceSet.php
+@@ -1,5 +1,7 @@
+ <?php
+ /*
++ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.58.1.
++ * Search this file for ESTATWEAKS_MOD in comments to identify changes.
+  +--------------------------------------------------------------------+
+  | Copyright CiviCRM LLC. All rights reserved.                        |
+  |                                                                    |
+@@ -899,8 +901,9 @@
+         }
+         $currentMembership = $_contact_memberships[$userid][$value['membership_type_id']];
+         if (!empty($currentMembership) && empty($currentMembership['end_date'])) {
+-          unset($options[$key]);
+-          $checkLifetime = TRUE;
++          // ESTATWEAKS_MOD: ESTA Tweaks extension change: comment out these lines:
++          // unset($options[$key]);
++          // $checkLifetime = TRUE;
+         }
+       }
+     }
+@@ -1691,7 +1694,8 @@
+           $userid = $form->getVar('_membershipContactID');
+           $checklifetime = self::checkCurrentMembership($options, $userid);
+           if ($checklifetime) {
+-            $form->assign('ispricelifetime', TRUE);
++            // ESTATWEAKS_MOD: ESTA Tweaks extension change: comment out these lines:
++            // $form->assign('ispricelifetime', TRUE);
+           }
+         }
+ 

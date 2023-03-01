@@ -1,6 +1,6 @@
 <?php
 /*
- * Copied for estatweaks extension from like-named civicrm file in civicrm 5.57.1.
+ * Copied for estatweaks extension from like-named civicrm file in civicrm 5.58.1.
  * Search this file for ESTATWEAKS_MOD in comments to identify changes.
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC. All rights reserved.                        |
@@ -557,7 +557,7 @@ WHERE  id = %1";
    *   Price Set ID
    */
   public static function initSet(&$form, $entityTable = 'civicrm_event', $doNotIncludeExpiredFields = FALSE, $priceSetId = NULL) {
-
+    CRM_Core_Error::deprecatedFunctionWarning('no alternative');
     //check if price set is is_config
     if (is_numeric($priceSetId)) {
       if (CRM_Core_DAO::getFieldValue('CRM_Price_DAO_PriceSet', $priceSetId, 'is_quick_config') && $form->getVar('_name') != 'Participant') {
